@@ -59,7 +59,7 @@ def merge_to_template(word_file, matches, keyword):
         return None
 
 st.set_page_config(page_title="PDF Key Matcher", layout="wide")
-st.title("Enterprise PDF to Word Key Matcher")
+st.title("PDF to Word Key Matcher")
 
 col1, col2 = st.columns(2)
 with col1:
