@@ -1,10 +1,9 @@
 import streamlit as st
-import fitz  # PyMuPDF
+import fitz
 from docx import Document
 import io
 import logging
 
-# --- Logging for Production Debugging ---
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("KeyMatcher")
 
@@ -41,7 +40,6 @@ def merge_to_template(word_file, matches, keyword):
         if not matches:
             doc.add_paragraph(f"No occurrences of '{keyword}' found in the PDF.")
         else:
-            # Check if 'List Bullet' style exists in this specific document
             has_bullet_style = 'List Bullet' in doc.styles
             
             for match in matches:
@@ -60,7 +58,6 @@ def merge_to_template(word_file, matches, keyword):
         logger.error(f"Word Update Error: {e}")
         return None
 
-# --- UI Layer ---
 st.set_page_config(page_title="PDF Key Matcher", layout="wide")
 st.title("Enterprise PDF to Word Key Matcher")
 
